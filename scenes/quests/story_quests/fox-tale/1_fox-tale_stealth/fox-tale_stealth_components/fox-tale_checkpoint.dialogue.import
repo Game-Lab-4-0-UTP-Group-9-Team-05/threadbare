@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://duhsclv7oxdgq"
+path="res://.godot/imported/fox-tale_checkpoint.dialogue-1c77526234f781b5691aac12a99e395c.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/1_fox-tale_stealth/fox-tale_stealth_components/fox-tale_checkpoint.dialogue"
+dest_files=["res://.godot/imported/fox-tale_checkpoint.dialogue-1c77526234f781b5691aac12a99e395c.tres"]
+
+[params]
+
+defaults=true

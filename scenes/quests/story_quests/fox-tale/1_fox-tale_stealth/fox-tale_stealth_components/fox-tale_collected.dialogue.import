@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://sjssv4kr8uan"
+path="res://.godot/imported/fox-tale_collected.dialogue-d04df8c10d63b1b426394079fe338d17.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/1_fox-tale_stealth/fox-tale_stealth_components/fox-tale_collected.dialogue"
+dest_files=["res://.godot/imported/fox-tale_collected.dialogue-d04df8c10d63b1b426394079fe338d17.tres"]
+
+[params]
+
+defaults=true

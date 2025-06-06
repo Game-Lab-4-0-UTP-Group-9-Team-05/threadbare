@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://djkj0px7x2u03"
+path="res://.godot/imported/fox-tale_outro.dialogue-a42804e571d67ebece473a895a2dc2b7.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/4_fox-tale_outro/fox-tale_outro_components/fox-tale_outro.dialogue"
+dest_files=["res://.godot/imported/fox-tale_outro.dialogue-a42804e571d67ebece473a895a2dc2b7.tres"]
+
+[params]
+
+defaults=true

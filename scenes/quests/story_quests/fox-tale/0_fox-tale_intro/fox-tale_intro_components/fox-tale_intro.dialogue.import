@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dncoqywynvuur"
+path="res://.godot/imported/fox-tale_intro.dialogue-d7330f3ca40b8ca5f855227c042fd3df.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/0_fox-tale_intro/fox-tale_intro_components/fox-tale_intro.dialogue"
+dest_files=["res://.godot/imported/fox-tale_intro.dialogue-d7330f3ca40b8ca5f855227c042fd3df.tres"]
+
+[params]
+
+defaults=true
