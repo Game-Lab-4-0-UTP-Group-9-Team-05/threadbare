@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqekkflcvpfcf"
-path="res://.godot/imported/fox-tale_guard_enemy_walk.png-2013601f6f18cbec96c48b1570a3ae03.ctex"
+uid="uid://ncj50rbg07fo"
+path="res://.godot/imported/terrain_tiles.png-b65762c58ffcc39e71248ab6614d6cba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/quests/story_quests/fox-tale/1_fox-tale_stealth/fox-tale_stealth_components/fox-tale_guard_enemy_walk.png"
-dest_files=["res://.godot/imported/fox-tale_guard_enemy_walk.png-2013601f6f18cbec96c48b1570a3ae03.ctex"]
+source_file="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/tilemap/terrain_tiles.png"
+dest_files=["res://.godot/imported/terrain_tiles.png-b65762c58ffcc39e71248ab6614d6cba.ctex"]
 
 [params]
 

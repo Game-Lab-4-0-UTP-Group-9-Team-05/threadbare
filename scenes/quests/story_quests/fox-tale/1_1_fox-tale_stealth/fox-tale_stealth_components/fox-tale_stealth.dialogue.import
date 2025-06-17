@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dbgouk56anfnn"
+path="res://.godot/imported/fox-tale_stealth.dialogue-1dedb9d15c6a20b6aca272fbdd7a31bf.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/1_1_fox-tale_stealth/fox-tale_stealth_components/fox-tale_stealth.dialogue"
+dest_files=["res://.godot/imported/fox-tale_stealth.dialogue-1dedb9d15c6a20b6aca272fbdd7a31bf.tres"]
+
+[params]
+
+defaults=true

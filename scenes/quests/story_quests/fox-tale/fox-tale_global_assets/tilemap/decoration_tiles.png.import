@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcb48elf81iry"
-path="res://.godot/imported/fox-tale_guard_enemy_idle.png-07a519a14f4a7f5cbb6c1371185e1093.ctex"
+uid="uid://dcm7luv111apr"
+path="res://.godot/imported/decoration_tiles.png-a1412396f3cf548bfddb128f409b346e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/quests/story_quests/fox-tale/1_fox-tale_stealth/fox-tale_stealth_components/fox-tale_guard_enemy_idle.png"
-dest_files=["res://.godot/imported/fox-tale_guard_enemy_idle.png-07a519a14f4a7f5cbb6c1371185e1093.ctex"]
+source_file="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/tilemap/decoration_tiles.png"
+dest_files=["res://.godot/imported/decoration_tiles.png-a1412396f3cf548bfddb128f409b346e.ctex"]
 
 [params]
 
