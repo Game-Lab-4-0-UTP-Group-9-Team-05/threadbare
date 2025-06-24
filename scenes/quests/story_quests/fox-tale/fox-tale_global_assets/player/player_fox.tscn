@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c2xtlqetfh7qg"]
+[gd_scene load_steps=36 format=3 uid="uid://c2xtlqetfh7qg"]
 
 [ext_resource type="Script" uid="uid://sluopl7cih7x" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/player/fox-tale_player.gd" id="1_qwt1m"]
 [ext_resource type="SpriteFrames" uid="uid://dmmtp1umdxbg0" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/fox-tale_player.tres" id="2_5b8im"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://crfylo055wa8e" path="res://scenes/game_elements/characters/player/components/blow.wav" id="11_p1ldb"]
 [ext_resource type="Script" uid="uid://ceh2qrdkyak82" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/player/additional_scripts/animation_fox_player.gd" id="11_rjbp8"]
 [ext_resource type="AudioStream" uid="uid://cx6jv2cflrmqu" path="res://assets/third_party/sounds/characters/player/Foot.ogg" id="13_pevkc"]
+[ext_resource type="Script" uid="uid://b6avhli0bo1de" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/player/additional_scripts/ui_player.gd" id="14_72ami"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a86xl"]
 blend_mode = 1
@@ -429,6 +430,9 @@ _data = {
 &"walk": SubResource("Animation_qek5x")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_shbp1"]
+font_size = 42
+
 [node name="PlayerFox" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_qwt1m")
 sprite_frames = ExtResource("2_5b8im")
@@ -549,3 +553,15 @@ stream = ExtResource("13_pevkc")
 volume_db = -5.0
 pitch_scale = 7.0
 bus = &"SFX"
+
+[node name="UIPlayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("14_72ami")
+
+[node name="HealthLabel" type="Label" parent="UIPlayer"]
+offset_right = 75.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Vida: 100"
+label_settings = SubResource("LabelSettings_shbp1")

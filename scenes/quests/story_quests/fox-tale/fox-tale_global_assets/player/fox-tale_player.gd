@@ -11,13 +11,17 @@ enum Mode {
 	FIGHTING,
 	## Player can't be controlled anymore.
 	DEFEATED,
+	## Player can't be controlled because is i
 }
 
 const DEFAULT_SPRITE_FRAME: SpriteFrames = preload("uid://vwf8e1v8brdp")
 
 ## The character's name. This is used to highlight when the player's character
 ## is speaking during dialogue.
-@export var player_name: String = "Player Name"
+@export var player_name: String = "Foxy"
+
+## Para la vida del personaje
+@export var health : float = 100
 
 ## Controls how the player can interact with the world around them.
 @export var mode: Mode = Mode.COZY:
@@ -43,6 +47,7 @@ var input_vector: Vector2
 @onready var player_fighting: Node2D = %PlayerFighting
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
 @onready var _walk_sound: AudioStreamPlayer2D = %WalkSound
+@onready var ui_player : CanvasLayer = %UIPlayer
 
 
 func _set_mode(new_mode: Mode) -> void:
@@ -149,3 +154,8 @@ func _set_walk_sound_stream(new_value: AudioStream) -> void:
 	if not is_node_ready():
 		await ready
 	_walk_sound.stream = walk_sound_stream
+
+func lost_health(h_lost : float) -> void:
+	health -= h_lost
+	ui_player.setHealLabelText(health)
+	
