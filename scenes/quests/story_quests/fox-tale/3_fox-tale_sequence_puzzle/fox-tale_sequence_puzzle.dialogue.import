@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dysqco588n5kg"
+path="res://.godot/imported/fox-tale_sequence_puzzle.dialogue-55914f4c26ffdf31d451fb281d6d2b75.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/3_fox-tale_sequence_puzzle/fox-tale_sequence_puzzle.dialogue"
+dest_files=["res://.godot/imported/fox-tale_sequence_puzzle.dialogue-55914f4c26ffdf31d451fb281d6d2b75.tres"]
+
+[params]
+
+defaults=true

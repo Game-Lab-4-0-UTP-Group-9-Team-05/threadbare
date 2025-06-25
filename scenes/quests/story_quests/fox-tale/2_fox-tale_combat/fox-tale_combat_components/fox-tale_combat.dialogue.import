@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://opaoi3je52b2"
+path="res://.godot/imported/fox-tale_combat.dialogue-81d3b759fc5998e805961e9d03a5e799.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/fox-tale/2_fox-tale_combat/fox-tale_combat_components/fox-tale_combat.dialogue"
+dest_files=["res://.godot/imported/fox-tale_combat.dialogue-81d3b759fc5998e805961e9d03a5e799.tres"]
+
+[params]
+
+defaults=true

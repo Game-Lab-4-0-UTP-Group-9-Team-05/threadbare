@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: The Threadbare Authors
+# SPDX-License-Identifier: MPL-2.0
+
+~ start
+do animation_player.play(&"walk_on")
+do animation_player.animation_finished
+Bien.. Llegue a esta historia ahora debo averiguar como salir de aquí…
+*se escuchan pedidos de auxilio, la idea es hacer una mini animación*
+Eh! Creo escuché a alguien pidiendo auxilio. Debería ir a investigar...
+do animation_player.play(&"walk_off")
+=> END
