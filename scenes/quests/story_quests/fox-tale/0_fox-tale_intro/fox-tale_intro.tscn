@@ -350,7 +350,7 @@ libraries = {
 script = ExtResource("4_t3hko")
 dialogue = ExtResource("5_sxxyw")
 animation_player = NodePath("../OnTheGround/AnimationPlayer")
-next_scene = "uid://coi4lvxir542y"
+next_scene = "uid://bsxom1qqlchre"
 metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
 [node name="Rock" parent="." instance=ExtResource("6_osftp")]

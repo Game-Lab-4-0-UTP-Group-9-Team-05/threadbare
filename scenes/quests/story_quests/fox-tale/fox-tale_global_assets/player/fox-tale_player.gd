@@ -11,7 +11,8 @@ enum Mode {
 	FIGHTING,
 	## Player can't be controlled anymore.
 	DEFEATED,
-	## Player can't be controlled because is i
+	## Player can't be controlled because is in cinematic
+	CINEMATIC
 }
 
 const DEFAULT_SPRITE_FRAME: SpriteFrames = preload("uid://vwf8e1v8brdp")
@@ -65,6 +66,9 @@ func _set_mode(new_mode: Mode) -> void:
 		Mode.DEFEATED:
 			_toggle_player_behavior(player_interaction, false)
 			_toggle_player_behavior(player_fighting, false)
+		Mode.CINEMATIC:
+			_toggle_player_behavior(player_interaction, false)
+			_toggle_player_behavior(player_fighting, false)
 	if mode != previous_mode:
 		mode_changed.emit(mode)
 
@@ -89,6 +93,7 @@ func _toggle_player_behavior(behavior_node: Node2D, is_active: bool) -> void:
 func _ready() -> void:
 	_set_mode(mode)
 	_set_sprite_frames(sprite_frames)
+	ui_player.setHealLabelText(health)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -116,7 +121,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if player_interaction.is_interacting or mode == Mode.DEFEATED:
+	if player_interaction.is_interacting or mode == Mode.DEFEATED or mode == Mode.CINEMATIC:
 		velocity = Vector2.ZERO
 		return
 
@@ -127,7 +132,7 @@ func _process(delta: float) -> void:
 		step = moving_step
 
 	velocity = velocity.move_toward(input_vector, step * delta)
-
+	
 	move_and_slide()
 
 

@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_kgbae")
-title = ""
-description = ""
-authors = Array[String]([])
-affiliation = ""
-first_scene = "uid://c1gdct760l86h"
+title = "A Fox Tale"
+description = "Un mundo mágico."
+authors = Array[String](["Diego", "Christian", "Pablo", "Anderson", "Jean"])
+affiliation = "UTP"
+first_scene = "uid://cbdcpbwri8ulk"
 animation_name = &""
 metadata/_custom_type_script = "uid://dts1hwdy3phin"
