@@ -21,23 +21,33 @@ enum Mode {
 
 @onready var target_follow : CharacterBody2D = null
 
+func _ready() -> void:
+	add_to_group("enemy")
+	match mode:
+		Mode.PATROLL:
+			on_init_patroll()
+		Mode.FOLLOW:
+			on_init_follow()
+		Mode.MELEE_ATACK:
+			on_init_melee_atk()
+		Mode.TURN_BACK:
+			on_init_turn_back()
+
 ##Para patroll
 func on_init_patroll() -> void:
 	animation.play("idle")
-	detect_area.process_mode = Node.PROCESS_MODE_INHERIT
 	velocity = Vector2.ZERO
 
 func on_physics_process_patroll() -> void:
 	pass
 
 func on_end_patroll() -> void:
-	detect_area.process_mode = Node.PROCESS_MODE_DISABLED
+	pass
 
 ##Para follow
 
 func on_init_follow() -> void:
 	animation.play("follow")
-	follow_area.process_mode = Node.PROCESS_MODE_INHERIT
 
 func on_physics_process_follow() -> void:
 	if(!target_follow):
@@ -47,12 +57,13 @@ func on_physics_process_follow() -> void:
 	velocity = direction * follow_spd
 
 func on_end_follow() -> void:
-	follow_area.process_mode = Node.PROCESS_MODE_DISABLED
+	pass
 
 ##Para melee atk
 
 func on_init_melee_atk() -> void:
 	animation.play("atk_melee")
+	velocity = Vector2.ZERO
 
 func on_physics_process_melee_atk() -> void:
 	pass
@@ -71,7 +82,7 @@ func on_physics_process_turn_back() -> void:
 func on_end_turn_back() -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match mode:
 		Mode.PATROLL:
 			on_physics_process_patroll()
@@ -90,7 +101,6 @@ func change_mode(new_mode : Mode) -> void:
 		return
 	if mode != previous_mode:
 		mode_changed.emit(mode)
-		print()
 		match previous_mode:
 			Mode.PATROLL:
 				on_end_patroll()
@@ -110,3 +120,9 @@ func change_mode(new_mode : Mode) -> void:
 				on_init_melee_atk()
 			Mode.TURN_BACK:
 				on_init_turn_back()
+
+func lost_health(h_lost : float) -> void:
+	health -= h_lost
+	print(health)
+	if health < 0:
+		queue_free()

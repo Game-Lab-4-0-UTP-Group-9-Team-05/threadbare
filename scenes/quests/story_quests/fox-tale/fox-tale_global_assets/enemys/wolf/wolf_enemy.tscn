@@ -12,8 +12,6 @@
 [ext_resource type="Script" uid="uid://qivbmroka6h1" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/animation_player.gd" id="10_58lpr"]
 [ext_resource type="Script" uid="uid://cawxtlfl00s3h" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_area.gd" id="10_d7h3h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u3uu"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6xar"]
 atlas = ExtResource("2_pyywh")
 region = Rect2(0, 0, 128, 128)
@@ -219,6 +217,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7h3h"]
+height = 57.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u2oh"]
 radius = 234.053
 
@@ -234,9 +235,8 @@ size = Vector2(85, 117)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1feg"]
 size = Vector2(50, 77)
 
-[sub_resource type="Animation" id="Animation_suk6a"]
-resource_name = "walk"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_8f5xt"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -244,10 +244,10 @@ tracks/0/path = NodePath("WolfEnemySprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 10]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -261,33 +261,17 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"walk"]
 }
-
-[sub_resource type="Animation" id="Animation_26e8e"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WolfEnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WolfEnemySprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WolfEnemyFighting/HitArea:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_j84gp"]
@@ -330,45 +314,6 @@ tracks/2/keys = {
 "values": [4, 0, 4]
 }
 
-[sub_resource type="Animation" id="Animation_8f5xt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WolfEnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WolfEnemySprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WolfEnemyFighting/HitArea:process_mode")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
 [sub_resource type="Animation" id="Animation_w725l"]
 resource_name = "follow"
 length = 0.75
@@ -398,6 +343,62 @@ tracks/1/keys = {
 "values": [0, 10]
 }
 
+[sub_resource type="Animation" id="Animation_26e8e"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WolfEnemySprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_suk6a"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WolfEnemySprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1refs"]
 _data = {
 &"RESET": SubResource("Animation_8f5xt"),
@@ -410,32 +411,32 @@ _data = {
 [node name="WolfEnemy" type="CharacterBody2D"]
 script = ExtResource("1_uclj7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6u3uu")
-
 [node name="WolfEnemySprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y3egr")
 animation = &"walk"
 script = ExtResource("6_n5l62")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.6, 46.35)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_d7h3h")
+
 [node name="WolfEnemyFighting" type="Node2D" parent="."]
+visible = false
 
 [node name="DetectArea" type="Area2D" parent="WolfEnemyFighting"]
-visible = false
 script = ExtResource("6_582ca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/DetectArea"]
 shape = SubResource("CircleShape2D_0u2oh")
 
 [node name="FollowArea" type="Area2D" parent="WolfEnemyFighting"]
-visible = false
 script = ExtResource("7_ewucb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/FollowArea"]
 shape = SubResource("CircleShape2D_yi2wd")
 
 [node name="MeleeArea" type="Area2D" parent="WolfEnemyFighting"]
-visible = false
 script = ExtResource("9_k6xar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/MeleeArea"]
