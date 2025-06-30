@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bsxom1qqlchre"]
+[gd_scene load_steps=13 format=4 uid="uid://bsxom1qqlchre"]
 
 [ext_resource type="Texture2D" uid="uid://ccoyhhr3xnhko" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/parallax/bg_bosque/capa_1.png" id="1_hllko"]
 [ext_resource type="Texture2D" uid="uid://cpimi3mbiveh5" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/parallax/bg_bosque/capa_2.png" id="2_gmtc8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xtlqetfh7qg" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/player/player_fox.tscn" id="7_gmtc8"]
 [ext_resource type="Texture2D" uid="uid://xs7iofheopql" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/tilemap/capa_arbustos_frontales.png" id="7_rvvvt"]
 [ext_resource type="PackedScene" uid="uid://bfnkr77fo1w1j" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy.tscn" id="10_6q46p"]
+[ext_resource type="PackedScene" uid="uid://fa2m7njxorp1" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/test/damage_area.tscn" id="10_xtr7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvvvt"]
 texture = ExtResource("7_rvvvt")
@@ -97,3 +98,6 @@ editor_draw_limits = true
 
 [node name="WolfEnemy" parent="." instance=ExtResource("10_6q46p")]
 position = Vector2(1280, 456)
+
+[node name="DamageArea" parent="." instance=ExtResource("10_xtr7r")]
+position = Vector2(518, 474)

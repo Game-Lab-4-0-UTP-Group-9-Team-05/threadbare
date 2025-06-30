@@ -164,9 +164,3 @@ func lost_health(h_lost : float) -> void:
 	health -= h_lost
 	ui_player.setHealLabelText(health)
 	
-
-func _on_air_stream_body_entered(body: Node2D) -> void:
-	print("cuerpo detectado")
-	if body.is_in_group("enemy"):
-		print("enemigo detectado")
-		body.lost_health(500)

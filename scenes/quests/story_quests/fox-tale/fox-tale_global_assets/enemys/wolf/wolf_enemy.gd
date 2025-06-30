@@ -22,7 +22,6 @@ enum Mode {
 @onready var target_follow : CharacterBody2D = null
 
 func _ready() -> void:
-	add_to_group("enemy")
 	match mode:
 		Mode.PATROLL:
 			on_init_patroll()

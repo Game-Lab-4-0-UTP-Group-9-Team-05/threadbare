@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bfnkr77fo1w1j"]
+[gd_scene load_steps=52 format=3 uid="uid://bfnkr77fo1w1j"]
 
 [ext_resource type="Script" uid="uid://g0hskpwf16sx" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy.gd" id="1_uclj7"]
 [ext_resource type="Texture2D" uid="uid://ydi7nkbwn6sw" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/sprites/wolf_melee.png" id="2_pyywh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dxj2ohc2ph77s" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy_sprite.gd" id="6_n5l62"]
 [ext_resource type="Script" uid="uid://cjsuk3c0l0xjk" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/follow_area.gd" id="7_ewucb"]
 [ext_resource type="Script" uid="uid://b42by8ch7ok4w" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/melee_area.gd" id="9_k6xar"]
+[ext_resource type="Script" uid="uid://cefljsnognwp8" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_box_area.gd" id="10_3wt7c"]
 [ext_resource type="Script" uid="uid://qivbmroka6h1" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/animation_player.gd" id="10_58lpr"]
 [ext_resource type="Script" uid="uid://cawxtlfl00s3h" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_area.gd" id="10_d7h3h"]
 
@@ -443,6 +444,7 @@ script = ExtResource("9_k6xar")
 shape = SubResource("CircleShape2D_58lpr")
 
 [node name="HitBoxArea" type="Area2D" parent="WolfEnemyFighting"]
+script = ExtResource("10_3wt7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/HitBoxArea"]
 position = Vector2(-4.5, -2.5)

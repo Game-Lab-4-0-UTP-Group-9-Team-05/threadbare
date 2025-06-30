@@ -32,8 +32,10 @@ func _on_body_entered(body: Node2D) -> void:
 	CameraShake.shake()
 
 
-func _on_air_stream_body_entered(body: Projectile) -> void:
-	body.got_hit(owner)
+func _on_air_stream_body_entered(body: CharacterBody2D) -> void:
+	pass
+
+
 
 
 func _notification(what: int) -> void:
@@ -41,3 +43,10 @@ func _notification(what: int) -> void:
 		NOTIFICATION_DISABLED:
 			got_hit_animation.play(&"RESET")
 			got_hit_animation.advance(0)
+
+
+func _on_air_stream_area_entered(area: Area2D) -> void:
+	print("cuerpo detectado")
+	if area.is_in_group("enemy"):
+		print("enemigo detectado")
+		area.lost_health(500)
