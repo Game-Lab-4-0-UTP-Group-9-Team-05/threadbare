@@ -418,17 +418,19 @@ animation = &"walk"
 script = ExtResource("6_n5l62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(5.6, 46.35)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_d7h3h")
 
 [node name="WolfEnemyFighting" type="Node2D" parent="."]
-visible = false
 
 [node name="DetectArea" type="Area2D" parent="WolfEnemyFighting"]
+visible = false
 script = ExtResource("6_582ca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/DetectArea"]
+visible = false
 shape = SubResource("CircleShape2D_0u2oh")
 
 [node name="FollowArea" type="Area2D" parent="WolfEnemyFighting"]
@@ -438,6 +440,7 @@ script = ExtResource("7_ewucb")
 shape = SubResource("CircleShape2D_yi2wd")
 
 [node name="MeleeArea" type="Area2D" parent="WolfEnemyFighting"]
+visible = false
 script = ExtResource("9_k6xar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/MeleeArea"]
@@ -452,9 +455,11 @@ shape = SubResource("RectangleShape2D_yy14c")
 
 [node name="HitArea" type="Area2D" parent="WolfEnemyFighting"]
 process_mode = 4
+visible = false
 script = ExtResource("10_d7h3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/HitArea"]
+visible = false
 position = Vector2(-59, -5)
 shape = SubResource("RectangleShape2D_e1feg")
 

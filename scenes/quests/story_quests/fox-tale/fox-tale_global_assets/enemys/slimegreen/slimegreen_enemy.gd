@@ -9,6 +9,7 @@ enum Mode {
 }
 
 @export var speed := 40
+@export var max_health := 100
 @export var mode : Mode = Mode.IDLE
 
 @onready var animation : AnimatedSprite2D = $slimegreen_enemy_sprite
@@ -17,8 +18,10 @@ enum Mode {
 var attack_distance := 20.0
 var cooldown := 1.5
 var time := 0.0
+var health: float = max_health
 
 func _ready() -> void:
+	health = max_health
 	match mode:
 		Mode.IDLE: init_idle()
 		Mode.MOVE: init_move()
@@ -32,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		Mode.ATACK: process_atack()
 	move_and_slide()
 
-# ===== STATES =====
+
 
 func init_idle() -> void:
 	animation.stop()
@@ -73,3 +76,17 @@ func change_mode(new_mode: Mode) -> void:
 		Mode.IDLE: init_idle()
 		Mode.MOVE: init_move()
 		Mode.ATACK: init_atack()
+
+# ===== DAMAGE SYSTEM =====
+
+func lost_health(amount: float) -> void:
+	health -= amount
+	print("Slime recibió daño:", amount, "→ Salud restante:", health)
+	
+	# Aquí podrías agregar animación, partícula o efecto
+	if health <= 0:
+		die()
+
+func die() -> void:
+	print(" El slime ha muerto.")
+	queue_free()  # Desaparece del juego
