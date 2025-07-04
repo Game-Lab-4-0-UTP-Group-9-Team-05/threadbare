@@ -1,25 +1,34 @@
-[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://dmmtp1umdxbg0"]
+[gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://dmmtp1umdxbg0"]
 
-[ext_resource type="Texture2D" uid="uid://d1ihj0kle7s8k" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/zorroAtk(128edition).png" id="1_kdysp"]
+[ext_resource type="Texture2D" uid="uid://dcopmi0mqk65p" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/zorroatkimproved.png" id="1_kdysp"]
 [ext_resource type="Texture2D" uid="uid://dly3ikrx05f0x" path="res://scenes/quests/story_quests/template/template_player_components/template_player_defeated.png" id="2_ju0vv"]
+[ext_resource type="Texture2D" uid="uid://c1fkxbv5k3rje" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/zorrohurt.png" id="3_mynn5"]
 [ext_resource type="Texture2D" uid="uid://pm8153dbv3hx" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/zorroIdle(128Edition).png" id="3_osw2x"]
 [ext_resource type="Texture2D" uid="uid://bwvs665xlnssd" path="res://scenes/quests/story_quests/fox-tale/fox-tale_player_components/Foxywalk(128edition).png" id="4_mynn5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgo1e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_osw2x"]
 atlas = ExtResource("1_kdysp")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_klvri"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mynn5"]
 atlas = ExtResource("1_kdysp")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rclob"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgo1e"]
 atlas = ExtResource("1_kdysp")
 region = Rect2(256, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_klvri"]
+atlas = ExtResource("1_kdysp")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rclob"]
+atlas = ExtResource("1_kdysp")
+region = Rect2(128, 128, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jf108"]
 atlas = ExtResource("1_kdysp")
-region = Rect2(384, 0, 128, 128)
+region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu6lk"]
 atlas = ExtResource("2_ju0vv")
@@ -28,6 +37,30 @@ region = Rect2(0, 0, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_icahe"]
 atlas = ExtResource("2_ju0vv")
 region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt3ne"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bookj"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wejpi"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsues"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iqy7"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2asix"]
+atlas = ExtResource("3_mynn5")
+region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bybe5"]
 atlas = ExtResource("3_osw2x")
@@ -76,6 +109,12 @@ region = Rect2(896, 0, 128, 128)
 [resource]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osw2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mynn5")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sgo1e")
 }, {
@@ -129,6 +168,29 @@ animations = [{
 "loop": true,
 "name": &"defeated",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt3ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bookj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wejpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsues")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iqy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2asix")
+}],
+"loop": true,
+"name": &"got_hit",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

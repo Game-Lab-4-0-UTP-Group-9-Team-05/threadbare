@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bfnkr77fo1w1j"]
+[gd_scene load_steps=55 format=3 uid="uid://bfnkr77fo1w1j"]
 
 [ext_resource type="Script" uid="uid://g0hskpwf16sx" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy.gd" id="1_uclj7"]
 [ext_resource type="Texture2D" uid="uid://ydi7nkbwn6sw" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/sprites/wolf_melee.png" id="2_pyywh"]
@@ -8,15 +8,11 @@
 [ext_resource type="Script" uid="uid://dl2x7ha6p2sab" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/detect_area.gd" id="6_582ca"]
 [ext_resource type="Script" uid="uid://dxj2ohc2ph77s" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy_sprite.gd" id="6_n5l62"]
 [ext_resource type="Script" uid="uid://cjsuk3c0l0xjk" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/follow_area.gd" id="7_ewucb"]
+[ext_resource type="Script" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/wolf_enemy_fighting.gd" id="7_l0squ"]
 [ext_resource type="Script" uid="uid://b42by8ch7ok4w" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/melee_area.gd" id="9_k6xar"]
+[ext_resource type="Script" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_box_area.gd" id="10_3wt7c"]
 [ext_resource type="Script" uid="uid://qivbmroka6h1" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/animation_player.gd" id="10_58lpr"]
 [ext_resource type="Script" uid="uid://cawxtlfl00s3h" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_area.gd" id="10_d7h3h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u3uu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6xar"]
-atlas = ExtResource("2_pyywh")
-region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58lpr"]
 atlas = ExtResource("2_pyywh")
@@ -37,6 +33,18 @@ region = Rect2(512, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4nod"]
 atlas = ExtResource("2_pyywh")
 region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u2oh"]
+atlas = ExtResource("4_ewucb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi2wd"]
+atlas = ExtResource("4_ewucb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6xar"]
+atlas = ExtResource("2_pyywh")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7objb"]
 atlas = ExtResource("3_582ca")
@@ -122,9 +130,6 @@ region = Rect2(256, 256, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k6xar")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_58lpr")
 }, {
 "duration": 1.0,
@@ -138,6 +143,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t4nod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u2oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi2wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi2wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi2wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi2wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xar")
 }],
 "loop": true,
 "name": &"atk_melee",
@@ -167,6 +199,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"atk_spear",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"fast_atk_melee",
 "speed": 5.0
 }, {
 "frames": [{
@@ -219,6 +256,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7h3h"]
+height = 57.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u2oh"]
 radius = 234.053
 
@@ -233,102 +273,6 @@ size = Vector2(85, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1feg"]
 size = Vector2(50, 77)
-
-[sub_resource type="Animation" id="Animation_suk6a"]
-resource_name = "walk"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WolfEnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WolfEnemySprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk"]
-}
-
-[sub_resource type="Animation" id="Animation_26e8e"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WolfEnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WolfEnemySprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
-[sub_resource type="Animation" id="Animation_j84gp"]
-resource_name = "atk_melee"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WolfEnemySprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"atk_melee"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WolfEnemySprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WolfEnemyFighting/HitArea:process_mode")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.37, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [4, 0, 4]
-}
 
 [sub_resource type="Animation" id="Animation_8f5xt"]
 length = 0.001
@@ -369,6 +313,46 @@ tracks/2/keys = {
 "values": [4]
 }
 
+[sub_resource type="Animation" id="Animation_j84gp"]
+resource_name = "atk_melee"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEnemySprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"atk_melee"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WolfEnemySprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WolfEnemyFighting/HitArea:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.37, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 0, 4]
+}
+
 [sub_resource type="Animation" id="Animation_w725l"]
 resource_name = "follow"
 length = 0.75
@@ -398,6 +382,62 @@ tracks/1/keys = {
 "values": [0, 10]
 }
 
+[sub_resource type="Animation" id="Animation_26e8e"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WolfEnemySprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_suk6a"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WolfEnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WolfEnemySprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1refs"]
 _data = {
 &"RESET": SubResource("Animation_8f5xt"),
@@ -410,25 +450,29 @@ _data = {
 [node name="WolfEnemy" type="CharacterBody2D"]
 script = ExtResource("1_uclj7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6u3uu")
-
 [node name="WolfEnemySprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y3egr")
 animation = &"walk"
 script = ExtResource("6_n5l62")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(5.6, 46.35)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_d7h3h")
+
 [node name="WolfEnemyFighting" type="Node2D" parent="."]
+script = ExtResource("7_l0squ")
 
 [node name="DetectArea" type="Area2D" parent="WolfEnemyFighting"]
 visible = false
 script = ExtResource("6_582ca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/DetectArea"]
+visible = false
 shape = SubResource("CircleShape2D_0u2oh")
 
 [node name="FollowArea" type="Area2D" parent="WolfEnemyFighting"]
-visible = false
 script = ExtResource("7_ewucb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/FollowArea"]
@@ -442,18 +486,24 @@ script = ExtResource("9_k6xar")
 shape = SubResource("CircleShape2D_58lpr")
 
 [node name="HitBoxArea" type="Area2D" parent="WolfEnemyFighting"]
+script = ExtResource("10_3wt7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/HitBoxArea"]
 position = Vector2(-4.5, -2.5)
 shape = SubResource("RectangleShape2D_yy14c")
+debug_color = Color(0.7, 0, 0, 0.419608)
 
 [node name="HitArea" type="Area2D" parent="WolfEnemyFighting"]
 process_mode = 4
+collision_layer = 64
+collision_mask = 64
 script = ExtResource("10_d7h3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WolfEnemyFighting/HitArea"]
+visible = false
 position = Vector2(-59, -5)
 shape = SubResource("RectangleShape2D_e1feg")
+debug_color = Color(0.151862, 0.471446, 0.187998, 0.419608)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -465,5 +515,7 @@ script = ExtResource("10_58lpr")
 [connection signal="body_entered" from="WolfEnemyFighting/DetectArea" to="WolfEnemyFighting/DetectArea" method="_on_body_entered"]
 [connection signal="body_exited" from="WolfEnemyFighting/FollowArea" to="WolfEnemyFighting/FollowArea" method="_on_body_exited"]
 [connection signal="body_entered" from="WolfEnemyFighting/MeleeArea" to="WolfEnemyFighting/MeleeArea" method="_on_body_entered"]
+[connection signal="area_entered" from="WolfEnemyFighting/HitBoxArea" to="WolfEnemyFighting/HitBoxArea" method="_on_area_entered"]
+[connection signal="area_entered" from="WolfEnemyFighting/HitArea" to="WolfEnemyFighting/HitArea" method="_on_area_entered"]
 [connection signal="body_entered" from="WolfEnemyFighting/HitArea" to="WolfEnemyFighting/HitArea" method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

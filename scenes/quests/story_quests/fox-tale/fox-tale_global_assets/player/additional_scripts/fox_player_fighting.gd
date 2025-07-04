@@ -23,7 +23,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body = body as Projectile
+	body = body as Area2D
 	if not body:
 		return
 	body.add_small_fx()
@@ -32,8 +32,10 @@ func _on_body_entered(body: Node2D) -> void:
 	CameraShake.shake()
 
 
-func _on_air_stream_body_entered(body: Projectile) -> void:
-	body.got_hit(owner)
+func _on_air_stream_body_entered(body: CharacterBody2D) -> void:
+	pass
+
+
 
 
 func _notification(what: int) -> void:
@@ -41,3 +43,22 @@ func _notification(what: int) -> void:
 		NOTIFICATION_DISABLED:
 			got_hit_animation.play(&"RESET")
 			got_hit_animation.advance(0)
+
+
+func _on_air_stream_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		area.lost_health(75)
+
+func _process(delta: float) -> void:
+	if not player:
+		return
+	if player.velocity.is_zero_approx():
+		return
+	if not is_zero_approx(player.velocity.x):
+		var desired_sign = sign(player.velocity.x)
+		if sign(scale.x) != desired_sign:
+			scale.x *= -1
+
+func get_damage() -> void:
+	got_hit_animation.play(&"got_hit")
+	CameraShake.shake()
