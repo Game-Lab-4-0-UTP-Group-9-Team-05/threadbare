@@ -123,5 +123,5 @@ func change_mode(new_mode : Mode) -> void:
 func lost_health(h_lost : float) -> void:
 	health -= h_lost
 	print(health)
-	if health < 0:
+	if health <= 0:
 		queue_free()

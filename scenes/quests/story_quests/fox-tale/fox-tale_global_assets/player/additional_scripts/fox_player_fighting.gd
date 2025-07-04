@@ -23,7 +23,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body = body as Projectile
+	body = body as Area2D
 	if not body:
 		return
 	body.add_small_fx()
@@ -49,4 +49,14 @@ func _on_air_stream_area_entered(area: Area2D) -> void:
 	print("cuerpo detectado")
 	if area.is_in_group("enemy"):
 		print("enemigo detectado")
-		area.lost_health(500)
+		area.lost_health(75)
+
+func _process(delta: float) -> void:
+	if not player:
+		return
+	if player.velocity.is_zero_approx():
+		return
+	if not is_zero_approx(player.velocity.x):
+		var desired_sign = sign(player.velocity.x)
+		if sign(scale.x) != desired_sign:
+			scale.x *= -1
