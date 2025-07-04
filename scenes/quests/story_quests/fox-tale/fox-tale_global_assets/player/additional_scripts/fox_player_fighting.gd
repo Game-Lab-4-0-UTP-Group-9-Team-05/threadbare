@@ -46,9 +46,7 @@ func _notification(what: int) -> void:
 
 
 func _on_air_stream_area_entered(area: Area2D) -> void:
-	print("cuerpo detectado")
 	if area.is_in_group("enemy"):
-		print("enemigo detectado")
 		area.lost_health(75)
 
 func _process(delta: float) -> void:
@@ -60,3 +58,7 @@ func _process(delta: float) -> void:
 		var desired_sign = sign(player.velocity.x)
 		if sign(scale.x) != desired_sign:
 			scale.x *= -1
+
+func get_damage() -> void:
+	got_hit_animation.play(&"got_hit")
+	CameraShake.shake()

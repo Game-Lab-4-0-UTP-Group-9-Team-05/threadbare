@@ -24,6 +24,9 @@ const DEFAULT_SPRITE_FRAME: SpriteFrames = preload("uid://vwf8e1v8brdp")
 ## Para la vida del personaje
 @export var health : float = 100
 
+## Para activar movimiento
+@export var movimiento_activo : bool = true
+
 ## Controls how the player can interact with the world around them.
 @export var mode: Mode = Mode.COZY:
 	set = _set_mode
@@ -49,6 +52,7 @@ var input_vector: Vector2
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
 @onready var _walk_sound: AudioStreamPlayer2D = %WalkSound
 @onready var ui_player : CanvasLayer = %UIPlayer
+@onready var got_hit : AnimationPlayer = %GotHitAnimation
 
 
 func _set_mode(new_mode: Mode) -> void:
@@ -121,7 +125,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if player_interaction.is_interacting or mode == Mode.DEFEATED or mode == Mode.CINEMATIC:
+	if player_interaction.is_interacting or mode == Mode.DEFEATED or mode == Mode.CINEMATIC or not movimiento_activo:
 		velocity = Vector2.ZERO
 		return
 
@@ -161,6 +165,12 @@ func _set_walk_sound_stream(new_value: AudioStream) -> void:
 	_walk_sound.stream = walk_sound_stream
 
 func lost_health(h_lost : float) -> void:
+	if got_hit.current_animation == "got_hit":
+		return
 	health -= h_lost
+	if health <= 0:
+		_set_mode(Mode.DEFEATED)
+		return
+	player_fighting.get_damage()
 	ui_player.setHealLabelText(health)
 	

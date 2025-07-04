@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://dl2x7ha6p2sab" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/detect_area.gd" id="6_582ca"]
 [ext_resource type="Script" uid="uid://dxj2ohc2ph77s" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/wolf_enemy_sprite.gd" id="6_n5l62"]
 [ext_resource type="Script" uid="uid://cjsuk3c0l0xjk" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/follow_area.gd" id="7_ewucb"]
-[ext_resource type="Script" uid="uid://bubnvwd7kfnu5" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/wolf_enemy_fighting.gd" id="7_l0squ"]
+[ext_resource type="Script" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/wolf_enemy_fighting.gd" id="7_l0squ"]
 [ext_resource type="Script" uid="uid://b42by8ch7ok4w" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/melee_area.gd" id="9_k6xar"]
-[ext_resource type="Script" uid="uid://cefljsnognwp8" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_box_area.gd" id="10_3wt7c"]
+[ext_resource type="Script" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_box_area.gd" id="10_3wt7c"]
 [ext_resource type="Script" uid="uid://qivbmroka6h1" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/animation_player.gd" id="10_58lpr"]
 [ext_resource type="Script" uid="uid://cawxtlfl00s3h" path="res://scenes/quests/story_quests/fox-tale/fox-tale_global_assets/enemys/wolf/fight_scripts/hit_area.gd" id="10_d7h3h"]
 
@@ -462,7 +462,6 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_d7h3h")
 
 [node name="WolfEnemyFighting" type="Node2D" parent="."]
-visible = false
 script = ExtResource("7_l0squ")
 
 [node name="DetectArea" type="Area2D" parent="WolfEnemyFighting"]
